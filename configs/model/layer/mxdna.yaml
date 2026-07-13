@@ -1,0 +1,5 @@
+hidden_size: 512
+num_local_experts: 4
+expert_kernel_sizes: [3,5,7]
+deformable_conv_kernel_size: 3
+router_jitter_noise: 0.1

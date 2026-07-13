@@ -1,0 +1,2381 @@
+_name_: nucleotide_transformer  # this links to the overall SequenceDataset of all nucleotide transformer datasets
+dataset_name: enhancer  # this specifies which dataset in nuc trx
+dest_path: null  # path to overall nuc trx datasets
+max_length: ${.${.dataset_name}.max_length}
+d_output: ${.${.dataset_name}.classes} 
+use_padding: True
+padding_side: left
+add_eos: False
+batch_size: 32
+train_len: ${.${.dataset_name}.train_len}
+__l_max: ${.max_length}
+shuffle: true  # set this as default!
+# metric: ${.${.dataset_name}.metric}
+metric: mcc
+# these are used to find the right attributes automatically for each dataset
+# enhancer:
+#   train_len: 14968
+#   classes: 2
+#   max_length: 200
+#   metric: mcc
+# enhancer_types:
+#   train_len: 14968
+#   classes: 3
+#   max_length: 200
+#   metric: mcc
+# H3:
+#   train_len: 13468
+#   classes: 2
+#   max_length: 500
+#   metric: mcc
+# H3K4me1:
+#   train_len: 28509
+#   classes: 2
+#   max_length: 500
+#   metric: mcc
+# H3K4me2:
+#   train_len: 27614
+#   classes: 2
+#   max_length: 500
+#   metric: mcc
+# H3K4me3:
+#   train_len: 33119
+#   classes: 2
+#   max_length: 500
+#   metric: mcc
+# H3K9ac:
+#   train_len: 25003
+#   classes: 2
+#   max_length: 500
+#   metric: mcc
+# H3K14ac:
+#   train_len: 29743
+#   classes: 2
+#   max_length: 500
+#   metric: mcc
+# H3K36me3:
+#   train_len: 31392
+#   classes: 2
+#   max_length: 500
+#   metric: mcc
+# H3K79me3:
+#   train_len: 25953
+#   classes: 2
+#   max_length: 500
+#   metric: mcc
+# H4:
+#   train_len: 13140
+#   classes: 2
+#   max_length: 500
+#   metric: mcc
+# H4ac:
+#   train_len: 30685
+#   classes: 2
+#   max_length: 500
+#   metric: mcc
+# promoter_all:
+#   train_len: 53276
+#   classes: 2
+#   max_length: 300
+#   metric: f1_macro
+# promoter_non_tata:
+#   train_len: 47759
+#   classes: 2
+#   max_length: 300
+#   metric: f1_macro
+# promoter_tata:
+#   train_len: 5517
+#   classes: 2
+#   max_length: 300
+#   metric: f1_macro
+# splice_sites_acceptor:
+#   train_len: 19961
+#   classes: 2
+#   max_length: 600
+#   metric: f1_macro
+# splice_sites_donor:
+#   train_len: 19775
+#   classes: 2
+#   max_length: 600
+#   metric: f1_macro
+  
+# GM128:
+#   train_len: 4374
+#   classes: 2
+#   max_length: 500
+#   metric: acc
+# HEK293:
+#   train_len: 7512
+#   classes: 2
+#   max_length: 500
+#   metric: acc
+# HMEC:
+#   train_len: 6666
+#   classes: 2
+#   max_length: 500
+#   metric: acc
+# HSMM:
+#   train_len: 5642
+#   classes: 2
+#   max_length: 500
+#   metric: acc
+# HUVEC:
+#   train_len: 9500
+#   classes: 2
+#   max_length: 500
+#   metric: acc
+# # K562:
+# #   train_len: 6636
+# #   classes: 2
+# #   max_length: 500
+# #   metric: acc
+# NHEK:
+#   train_len: 5792
+#   classes: 2
+#   max_length: 500
+#   metric: acc
+# NHLF:
+#   train_len: 2924
+#   classes: 2
+#   max_length: 500
+#   metric: acc
+  
+# tf:
+#   train_len: 39439
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+  
+  
+# 4mc_C_equisetifolia:
+#   train_len: 183
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+# tf_0:
+#   train_len: 32378
+#   classes: 2
+#   max_length: 200
+#   metric: mcc
+# tf_1:
+#   train_len: 30632
+#   classes: 2
+#   max_length: 200
+#   metric: mcc
+# tf_2:
+#   train_len: 19000
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+# tf_3:
+#   train_len: 27294
+#   classes: 2
+#   max_length: 200
+#   metric: mcc
+  
+# tf_4:
+#   train_len: 19000
+#   classes: 2
+#   max_length: 200
+#   metric: mcc
+  
+  
+  
+# AGO1 :
+#   train_len: 20780
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+  
+# AGO2 :
+#   train_len: 24000
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# AGO3 :
+#   train_len: 3748
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# ALKBH5 :
+#   train_len: 924
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# AUF1 :
+#   train_len: 3474
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# C17ORF85 :
+#   train_len: 1218
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# C22ORF28 :
+#   train_len: 6350
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# CAPRIN1 :
+#   train_len: 6356
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# DGCR8 :
+#   train_len: 24000
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# EIF4A3 :
+#   train_len: 24000
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# EWSR1 :
+#   train_len: 5634
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# FMRP :
+#   train_len: 24000
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# FOX2 :
+#   train_len: 726
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# FUS :
+#   train_len: 24000
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# FXR1 :
+#   train_len: 1112
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# FXR2 :
+#   train_len: 6762
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# HNRNPC :
+#   train_len: 17068
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# HUR :
+#   train_len: 24000
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# IGF2BP1 :
+#   train_len: 24000
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# IGF2BP2 :
+#   train_len: 12000
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# IGF2BP3 :
+#   train_len: 24000
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# LIN28A :
+#   train_len: 21932
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# LIN28B :
+#   train_len: 9464
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# METTL3 :
+#   train_len: 3198
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# MOV10 :
+#   train_len: 7066
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# PTB :
+#   train_len: 24000
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# PUM2 :
+#   train_len: 2794
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# QKI :
+#   train_len: 1238
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# SFRS1 :
+#   train_len: 10314
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# TAF15 :
+#   train_len: 1760
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# TDP43 :
+#   train_len: 6580
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# TIA1 :
+#   train_len: 2642
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# TIAL1 :
+#   train_len: 6546
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# TNRC6 :
+#   train_len: 1320
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# U2AF65 :
+#   train_len: 9868
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# WTAP :
+#   train_len: 534
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+# ZC3H7B :
+#   train_len: 15742
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+
+# CIRCRNA :
+#   train_len: 556
+#   classes: 2
+#   max_length: 200
+#   metric: acc
+
+
+# # TFBS数据集配置文件
+# # 路径: /public/ojsys/eye/wuwencan/lihaokai/dataset/hyena/tfbs_individual/backup
+# # 基于您的示例设置统一数值
+
+
+
+
+# backup_20260110_193911:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cebpb_A549:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cebpb_H1hesc:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cebpb_Helas3:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cebpb_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cebpb_Imr90:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cebpb_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cfos_Gm12878:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cfos_Helas3:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cfos_Huvec:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cfos_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cfos_Mcf10aes:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cjun_Helas3:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cjun_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cjun_Huvec:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cjun_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cmyc_Gm12878:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cmyc_H1hesc:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cmyc_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cmyc_Nb4:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Corest_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Corest_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctbp2_H1hesc:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Dnd41:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Gm12878:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_H1hesc:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Helas3:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Hmec:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Hsmm:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Hsmmt:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Huvec:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Mcf7:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Nha:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Nhdfad:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Nhek:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Nhlf:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Osteobl:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Efos_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Egata2_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ehdac8_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ejund_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Elf1_A549:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Elf1_Gm12878:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Elf1_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Elf1_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ezh2_Dnd41:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ezh2_Helas3:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ezh2_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ezh2_Hsmm:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ezh2_Huvec:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ezh2_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Fosl1_H1hesc:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Fosl1_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Fosl2_A549:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Fosl2_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Foxa1_A549:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Foxa1_Ecc1:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Foxa1_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Foxa1_T47d:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Gabp_A549:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Gabp_Gm12878:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Gabp_H1hesc:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Gabp_Helas3:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Gabp_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Gabp_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Gata2_Huvec:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Gata2_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Gata2_Shsy5y:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Gata3_Mcf7:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Gata3_Shsy5y:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Gata3_T47d:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Hae2f1_Helas3:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Hae2f1_Mcf7:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Hdac2_H1hesc:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Hdac2_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Hdac2_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Hdac6_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Jund_Gm12878:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Jund_H1hesc:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Jund_Helas3:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Jund_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Jund_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Max_Gm12878:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Max_H1hesc:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Max_Helas3:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Max_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Max_Huvec:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Max_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Max_Nb4:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Nfkb_Gm10847:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Nfkb_Gm12878:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Nfkb_Gm12891:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Nfkb_Gm12892:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Nfkb_Gm18526:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Nfkb_Gm19099:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# P300_Gm12878:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# P300_Helas3:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# P300_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# P300_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# P300_Sknshra:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# P300_T47d:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Pax5_Gm12878:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Pax5_Gm12891:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Pax5_Gm12892:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Pol2b_Helas3:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Pol2b_Huvec:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Pol2b_Nhek:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Sin3a_A549:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Sin3a_H1hesc:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Sin3a_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Sin3a_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Sin3a_Panc1:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Sp1_H1hesc:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Sp1_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Sp2_H1hesc:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Sp2_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Srf_H1hesc:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Srf_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Srf_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Stat3_Gm12878:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Stat3_Helas3:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Stat3_Mcf10aes:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Taf1_A549:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Taf1_Gm12878:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Taf1_Gm12892:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Taf1_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Taf1_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Taf1_Sknsh:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Tbp_Gm12878:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Tbp_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Tbp_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Tead4_H1hesc:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Tead4_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Tead4_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Yy1_Gm12878:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Yy1_Gm12892:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Yy1_H1hesc:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Yy1_Hct116:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Yy1_Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Yy1_K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Yy1_Nt2d1:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Yy1_Sknshra:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+
+# Cfos_Huvec_mutated:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Cfos_Huvec_original:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# K562:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Hepg2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Helas3:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Gm12878:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Osteobl_original_1_2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Osteobl_original_1_2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Osteobl_original_1_2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Osteobl_original_1_2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Osteobl_original_1_2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Osteobl_original_1_2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Ctcf_Osteobl_original_1_2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+# Yy1_2:
+#   train_len: 100000
+#   classes: 2
+#   max_length: 2000
+#   metric: acc
+
+wgEncodeAwgTfbsBroadDnd41CtcfUniPk:
+  train_len: 80112
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadDnd41Ezh239875UniPk:
+  train_len: 2771
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadGm12878CtcfUniPk:
+  train_len: 71971
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadH1hescCtcfUniPk:
+  train_len: 106481
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadHelas3CtcfUniPk:
+  train_len: 84452
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadHelas3Ezh239875UniPk:
+  train_len: 2908
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadHelas3Pol2bUniPk:
+  train_len: 5038
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadHepg2CtcfUniPk:
+  train_len: 74316
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadHepg2Ezh239875UniPk:
+  train_len: 5257
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadHmecCtcfUniPk:
+  train_len: 64076
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadHsmmCtcfUniPk:
+  train_len: 81478
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadHsmmEzh239875UniPk:
+  train_len: 2464
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadHsmmtCtcfUniPk:
+  train_len: 76718
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadHuvecCtcfUniPk:
+  train_len: 59859
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadHuvecEzh239875UniPk:
+  train_len: 9974
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadHuvecPol2bUniPk:
+  train_len: 8476
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadK562CtcfUniPk:
+  train_len: 83187
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadK562Ezh239875UniPk:
+  train_len: 2696
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadK562Hdac2a300705aUniPk:
+  train_len: 8395
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadK562Hdac6a301341aUniPk:
+  train_len: 1782
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadNhaCtcfUniPk:
+  train_len: 61558
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadNhdfadCtcfUniPk:
+  train_len: 78392
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadNhekCtcfUniPk:
+  train_len: 75380
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadNhekPol2bUniPk:
+  train_len: 9254
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadNhlfCtcfUniPk:
+  train_len: 63259
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsBroadOsteoblCtcfUniPk:
+  train_len: 90022
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibA549Elf1V0422111Etoh02UniPk:
+  train_len: 13777
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibA549Fosl2V0422111Etoh02UniPk:
+  train_len: 46009
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibA549Foxa1V0416102Dex100nmUniPk:
+  train_len: 12312
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibA549GabpV0422111Etoh02UniPk:
+  train_len: 19756
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibA549Sin3ak20V0422111Etoh02UniPk:
+  train_len: 9638
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibA549Taf1V0422111Etoh02UniPk:
+  train_len: 15974
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibEcc1Foxa1sc6553V0416102Dm002p1hUniPk:
+  train_len: 9427
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibGm12878Elf1sc631V0416101UniPk:
+  train_len: 36812
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibGm12878GabpPcr2xUniPk:
+  train_len: 10505
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibGm12878P300Pcr1xUniPk:
+  train_len: 8268
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibGm12878Pax5c20Pcr1xUniPk:
+  train_len: 40547
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibGm12878Pax5n19Pcr1xUniPk:
+  train_len: 31584
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibGm12878Taf1Pcr1xUniPk:
+  train_len: 22844
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibGm12878Yy1sc281Pcr1xUniPk:
+  train_len: 49590
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibGm12891Pax5c20V0416101UniPk:
+  train_len: 5049
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibGm12892Pax5c20V0416101UniPk:
+  train_len: 16480
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibGm12892Taf1V0416102UniPk:
+  train_len: 15107
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibGm12892Yy1V0416101UniPk:
+  train_len: 25521
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibH1hescFosl1sc183V0416102UniPk:
+  train_len: 1780
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibH1hescGabpPcr1xUniPk:
+  train_len: 9044
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibH1hescHdac2sc6296V0416102UniPk:
+  train_len: 9030
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibH1hescSp1Pcr1xUniPk:
+  train_len: 24176
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibH1hescSp2V0422111UniPk:
+  train_len: 3950
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibH1hescSrfPcr1xUniPk:
+  train_len: 8168
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibH1hescTead4sc101184V0422111UniPk:
+  train_len: 31771
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibH1hescYy1sc281V0416102UniPk:
+  train_len: 29324
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHct116Yy1sc281V0416101UniPk:
+  train_len: 20398
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHelas3GabpPcr1xUniPk:
+  train_len: 10817
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHepg2Cebpbsc150V0416101UniPk:
+  train_len: 29000
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHepg2Elf1sc631V0416101UniPk:
+  train_len: 28801
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHepg2Fosl2V0416101UniPk:
+  train_len: 40337
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHepg2Foxa1sc101058V0416101UniPk:
+  train_len: 68982
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHepg2Foxa1sc6553V0416101UniPk:
+  train_len: 82022
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHepg2GabpPcr2xUniPk:
+  train_len: 16174
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHepg2Hdac2sc6296V0416101UniPk:
+  train_len: 30137
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHepg2JundPcr1xUniPk:
+  train_len: 34582
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHepg2P300V0416101UniPk:
+  train_len: 44660
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHepg2Sin3ak20Pcr1xUniPk:
+  train_len: 26334
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHepg2Sp1Pcr1xUniPk:
+  train_len: 40763
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHepg2Sp2V0422111UniPk:
+  train_len: 4201
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHepg2SrfV0416101UniPk:
+  train_len: 8502
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHepg2Taf1Pcr2xUniPk:
+  train_len: 26654
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHepg2Tead4sc101184V0422111UniPk:
+  train_len: 24256
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibHepg2Yy1sc281V0416101UniPk:
+  train_len: 28601
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibK562Cebpbsc150V0422111UniPk:
+  train_len: 35584
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibK562Elf1sc631V0416102UniPk:
+  train_len: 44448
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibK562Fosl1sc183V0416101UniPk:
+  train_len: 17878
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibK562GabpV0416101UniPk:
+  train_len: 23028
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibK562Gata2sc267Pcr1xUniPk:
+  train_len: 30915
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibK562Hdac2sc6296V0416102UniPk:
+  train_len: 10675
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibK562MaxV0416102UniPk:
+  train_len: 73873
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibK562Sin3ak20V0416101UniPk:
+  train_len: 20320
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibK562SrfV0416101UniPk:
+  train_len: 7547
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibK562Taf1V0416101UniPk:
+  train_len: 24393
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibK562Tead4sc101184V0422111UniPk:
+  train_len: 49648
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibK562Yy1V0416101UniPk:
+  train_len: 20283
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibK562Yy1V0416102UniPk:
+  train_len: 38494
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibPanc1Sin3ak20V0416101UniPk:
+  train_len: 11491
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibSknshTaf1V0416101UniPk:
+  train_len: 22388
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibSknshraP300V0416102UniPk:
+  train_len: 74376
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibSknshraYy1sc281V0416102UniPk:
+  train_len: 25094
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibT47dFoxa1sc6553V0416102Dm002p1hUniPk:
+  train_len: 66488
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibT47dGata3sc268V0416102Dm002p1hUniPk:
+  train_len: 59518
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsHaibT47dP300V0416102Dm002p1hUniPk:
+  train_len: 22356
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhA549CebpbIggrabUniPk:
+  train_len: 62152
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhGm10847NfkbTnfaIggrabUniPk:
+  train_len: 14819
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhGm12878CfosUniPk:
+  train_len: 3582
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhGm12878JundUniPk:
+  train_len: 3955
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhGm12878MaxIggmusUniPk:
+  train_len: 20067
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhGm12878NfkbTnfaIggrabUniPk:
+  train_len: 27257
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhGm12878P300bUniPk:
+  train_len: 9902
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhGm12878Stat3IggmusUniPk:
+  train_len: 10379
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhGm12878TbpIggmusUniPk:
+  train_len: 23828
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhGm12891NfkbTnfaIggrabUniPk:
+  train_len: 45892
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhGm12892NfkbTnfaIggrabUniPk:
+  train_len: 13043
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhGm18526NfkbTnfaIggrabUniPk:
+  train_len: 4912
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhGm19099NfkbTnfaIggrabUniPk:
+  train_len: 12443
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhH1hescCebpbIggrabUniPk:
+  train_len: 24891
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhH1hescCtbp2UcdUniPk:
+  train_len: 11342
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhH1hescJundIggrabUniPk:
+  train_len: 15280
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhH1hescMaxUcdUniPk:
+  train_len: 17806
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhH1hescSin3anb6001263IggrabUniPk:
+  train_len: 34094
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHelas3CebpbIggrabUniPk:
+  train_len: 97606
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHelas3CfosUniPk:
+  train_len: 14920
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHelas3CjunIggrabUniPk:
+  train_len: 35044
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHelas3Hae2f1UniPk:
+  train_len: 16452
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHelas3JundIggrabUniPk:
+  train_len: 50612
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHelas3MaxIggrabUniPk:
+  train_len: 47435
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHelas3P300sc584sc584IggrabUniPk:
+  train_len: 41366
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHelas3Stat3IggrabUniPk:
+  train_len: 22134
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHepg2CebpbForsklnUniPk:
+  train_len: 29508
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHepg2CebpbIggrabUniPk:
+  train_len: 90606
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHepg2CjunIggrabUniPk:
+  train_len: 20275
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHepg2Corestsc30189IggrabUniPk:
+  train_len: 8537
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHepg2JundIggrabUniPk:
+  train_len: 51640
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHepg2MaxIggrabUniPk:
+  train_len: 18966
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHepg2TbpIggrabUniPk:
+  train_len: 22089
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHuvecCfosUcdUniPk:
+  train_len: 74761
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHuvecCjunUniPk:
+  train_len: 47238
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHuvecGata2UcdUniPk:
+  train_len: 43926
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhHuvecMaxUniPk:
+  train_len: 14595
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhImr90CebpbIggrabUniPk:
+  train_len: 112712
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhK562CebpbIggrabUniPk:
+  train_len: 61944
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhK562CfosUniPk:
+  train_len: 12233
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhK562CjunUniPk:
+  train_len: 15756
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhK562Corestsc30189IggrabUniPk:
+  train_len: 57185
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhK562Gata2UcdUniPk:
+  train_len: 17036
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhK562JundIggrabUniPk:
+  train_len: 64083
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhK562MaxIggrabUniPk:
+  train_len: 50297
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhK562P300IggrabUniPk:
+  train_len: 41409
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhK562TbpIggmusUniPk:
+  train_len: 28092
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhK562Yy1UcdUniPk:
+  train_len: 7916
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhMcf10aesCfosTam112hHvdUniPk:
+  train_len: 147772
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhMcf10aesCfosTam14hHvdUniPk:
+  train_len: 138116
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhMcf10aesCfosTamHvdUniPk:
+  train_len: 112739
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhMcf10aesStat3Etoh01UniPk:
+  train_len: 19734
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhMcf10aesStat3Etoh01bUniPk:
+  train_len: 72176
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhMcf10aesStat3Etoh01cUniPk:
+  train_len: 66168
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhMcf10aesStat3Tam112hHvdUniPk:
+  train_len: 63852
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhMcf10aesStat3TamUniPk:
+  train_len: 71190
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhMcf7Gata3UcdUniPk:
+  train_len: 9729
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhMcf7Hae2f1UcdUniPk:
+  train_len: 35113
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhNb4CmycUniPk:
+  train_len: 42003
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhNb4MaxUniPk:
+  train_len: 55454
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhNt2d1Yy1UcdUniPk:
+  train_len: 7779
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhShsy5yGata2UcdUniPk:
+  train_len: 56992
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsSydhShsy5yGata3sc269sc269UcdUniPk:
+  train_len: 25406
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsUchicagoK562EfosUniPk:
+  train_len: 16409
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsUchicagoK562Egata2UniPk:
+  train_len: 18364
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsUchicagoK562Ehdac8UniPk:
+  train_len: 2748
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsUchicagoK562EjundUniPk:
+  train_len: 42678
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsUtaGm12878CmycUniPk:
+  train_len: 5904
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsUtaGm12878CtcfUniPk:
+  train_len: 78265
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsUtaH1hescCmycUniPk:
+  train_len: 1947
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsUtaH1hescCtcfUniPk:
+  train_len: 69195
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsUtaHelas3CtcfUniPk:
+  train_len: 94089
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsUtaHepg2CmycUniPk:
+  train_len: 7060
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsUtaK562CtcfUniPk:
+  train_len: 89692
+  classes: 2
+  max_length: 101
+  metric: acc
+
+wgEncodeAwgTfbsUtaMcf7CtcfUniPk:
+  train_len: 92697
+  classes: 2
+  max_length: 101
+  metric: acc
+
+
+
+
+# name maxlen classes samples metric
+
+# enhancer 200   2  14968 MCC
+# enhancer_types 200   3  14968 MCC
+# H3 500   2  13468 MCC
+# H3K4me1  500   2  28509 MCC
+# H3K4me2  500   2  27614 MCC
+# H3K4me3  500   2  33119 MCC
+# H3K9ac   500   2  25003 MCC
+# H3K14ac  500   2  29743 MCC
+# H3K36me3 500   2  31392 MCC
+# H3K79me3 500   2  25953 MCC
+# H4 500   2  13140 MCC
+# H4ac  500   2  30685 MCC
+# promoter_all   300   2  53276 F1
+# promoter_non_tata 300   2  47759 F1
+# promoter_tata  300   2  5517  F1
+# splice_sites_acceptor   600   2  19961 F1
+# splice_sites_donor   600   2  19775 F1
