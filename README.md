@@ -107,6 +107,7 @@ python -c "import torch; print(torch.__version__); print(torch.cuda.is_available
 
 To facilitate reproducibility and independent applications, we provide both pretrained and fine-tuned model checkpoints.
 
+```text
 DCFHYENA/
 ├── pth/
 │   ├── pretrained
@@ -124,6 +125,8 @@ DCFHYENA/
 │   │   ├── HG19
 │   │   └── HG38
 └── ...
+
+```
 
 ### 4.1 Pretrained model
 
