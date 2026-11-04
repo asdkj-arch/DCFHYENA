@@ -40,7 +40,7 @@ DCFHYENA/
 ├── configs/
 ├── evals/
 ├── src/
-├── pth/
+├── ckpt/
 ├── data/
 ├── requirements.txt
 ├── train.py
@@ -109,13 +109,9 @@ To facilitate reproducibility and independent applications, we provide both pret
 
 ```text
 DCFHYENA/
-├── pth/
+├── ckpt/
 │   ├── pretrained
-│   │   │   ├── CHAR
-│   │   │   └── KMER
 │   └── finetuned
-│   │   │   ├── HG19
-│   │   │   └── HG38
 ├── data/
 │   ├── benchmark/
 │   │   ├── HG19
