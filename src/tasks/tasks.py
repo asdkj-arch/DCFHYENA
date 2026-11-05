@@ -29,162 +29,6 @@ import os
 
 
 
-def get_unique_path(save_path):
-    """
-    如果文件存在，则自动在文件名后加 _1, _2, ...
-    """
-    base, ext = os.path.splitext(save_path)
-    counter = 1
-
-    new_path = save_path
-    while os.path.exists(new_path):
-        new_path = f"{base}_{counter}{ext}"
-        counter += 1
-
-    return new_path
-
-def plot_position_interaction_map(
-        representation,        # (B, L, D) or (L, D)
-        batch_idx=0,
-        seq_len_show=32,
-        figsize=(4, 4),
-        cmap="YlGnBu",
-        title=None,
-        save_path=None,
-    ):
-        """
-        Position × Position interaction heatmap
-        """
-
-
-
-            # cmap="Reds"
-        #     cmap="Blues"
-# cmap="coolwarm"
-# cmap="hot"
-        import numpy as np
-        import matplotlib.pyplot as plt
-        import seaborn as sns
-
-
-            # ⭐ 关键1：保证字体可嵌入（论文很重要）
-        plt.rcParams['pdf.fonttype'] = 42
-        plt.rcParams['ps.fonttype'] = 42
-    
-        if representation.dim() == 3:
-            h = representation[batch_idx, :seq_len_show]
-        else:
-            h = representation[:seq_len_show]
-    
-        h = h.detach().cpu().numpy()  # (L, D)
-    
-        # position-position similarity
-        sim = h @ h.T                 # (L, L)
-        sim = (sim - sim.min()) / (sim.max() - sim.min() + 1e-10)
-    
-        plt.figure(figsize=figsize)
-        sns.heatmap(
-            sim,
-            cmap=cmap,
-            square=True,
-            xticklabels=False,
-            yticklabels=False,
-            cbar=True,
-        )
-    
-        plt.xlabel("Position")
-        plt.ylabel("Position")
-        if title:
-            plt.title(title)
-    
-        plt.tight_layout()
-        if save_path:
-            # plt.savefig(save_path, bbox_inches="tight")
-            save_path = get_unique_path(save_path)   # ⭐ 加这一行
-            plt.savefig(save_path, bbox_inches="tight")
-            plt.close()
-        else:
-            plt.show()
-    
-        return sim
-
-
-
-
-def plot_attention_map(
-    attention_weights,          # shape 支持以下几种：
-                                # (B, num_heads, L, L)
-                                # (B, L, L)          ← 已平均或单头
-                                # (L, L)             ← 最简单情况
-    layer_name="layer",         # 用于标题
-    head_idx=None,              # 如果是多头，可以指定看哪一头；None 则平均所有头
-    batch_idx=0,
-    seq_len_show=32,
-    figsize=(5.2, 4.8),
-    cmap="viridis",             # 注意力图常用 viridis / inferno / plasma / RdPu
-    title=None,
-    xlabel="Key Position",
-    ylabel="Query Position",
-    save_path=None,
-    show=True
-):
-    """
-    可视化 Transformer 某一层的注意力权重热力图
-    支持多头 / 单头 / 已平均的情况
-    """
-    plt.rcParams['pdf.fonttype'] = 42
-    plt.rcParams['ps.fonttype'] = 42
-
-    attn = attention_weights
-
-    # 统一处理成 (L, L)
-    if attn.dim() == 4:  # (B, H, L, L)
-        if head_idx is not None:
-            attn = attn[batch_idx, head_idx, :seq_len_show, :seq_len_show]
-            head_info = f" (head {head_idx})"
-        else:
-            # 平均所有头
-            attn = attn[batch_idx].mean(dim=0)[:seq_len_show, :seq_len_show]
-            head_info = " (avg heads)"
-    elif attn.dim() == 3:  # (B, L, L)
-        attn = attn[batch_idx, :seq_len_show, :seq_len_show]
-        head_info = ""
-    elif attn.dim() == 2:  # (L, L)
-        attn = attn[:seq_len_show, :seq_len_show]
-        head_info = ""
-    else:
-        raise ValueError("attention_weights shape not supported")
-
-    attn = attn.detach().cpu().numpy()
-
-    plt.figure(figsize=figsize)
-    sns.heatmap(
-        attn,
-        cmap=cmap,
-        square=True,
-        xticklabels=False,
-        yticklabels=False,
-        cbar=True,
-        cbar_kws={"shrink": 0.7, "aspect": 30}
-    )
-
-    default_title = f"Attention Map – {layer_name}{head_info}"
-    plt.title(title if title else default_title, fontsize=13, pad=10)
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-
-    plt.tight_layout()
-
-    if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches="tight")
-        if not show:
-            plt.close()
-    if show:
-        plt.show()
-
-    return attn
-
-
 class BaseTask:
     """ Abstract class that takes care of:
     - loss function
@@ -200,16 +44,7 @@ class BaseTask:
         """ This class is allowed to grab attributes directly off a constructed dataset and model object """
         self.dataset = dataset
         self.model = model
-        # self.model = model() if callable(model) else deepcopy(model)
-        # self.model1 = model() if callable(model) else deepcopy(model)
 
-#         if self.encoder is not None:
-#             self.encoder1 = deepcopy(self.encoder)
-#             self.encoder2 = deepcopy(self.encoder)
-
-#         if self.decoder is not None:
-#             self.decoder1 = deepcopy(self.decoder)
-#             self.decoder2 = deepcopy(self.decoder)
         if metrics is None: metrics = []
         
         # print("111111111111111111111111111111111111111111111")
@@ -247,14 +82,9 @@ class BaseTask:
             in_dim1=128, in_dim2=128, k_dim=128, v_dim=128, num_heads=1
         
         )
-        self.cross_attention1 = CrossAttention(
-            in_dim1=128, in_dim2=128, k_dim=64, v_dim=64, num_heads=1
-        )
-        self.cnnnet=CNNNET(input_channel=128).half().cuda()
-        
-        self.gatefusion = GatedFusion(in_dim1=128, in_dim2=128, d_model=128)
-        self.gatefusion_lm = GatedFusion(in_dim1=200, in_dim2=200, d_model=128)
-        
+
+
+        self.gatefusion = GatedFusion(in_dim1=128, in_dim2=128, d_model=128)  
         self.bidfusion = BidirectionalCrossAttention(
             dim=128,          # x 的最后一个维度（char 分词特征维度）
             context_dim=128,   # context 的最后一个维度（BPE 分词特征维度）
@@ -263,24 +93,9 @@ class BaseTask:
             dropout=0.0,           # 注意力 Dropout
             prenorm=True           # 是否 LayerNorm 在前（推荐 True）
         ).to('cuda')
-        self.bidfusion_lm = BidirectionalCrossAttention(
-            dim=200,          # x 的最后一个维度（char 分词特征维度）
-            context_dim=200,   # context 的最后一个维度（BPE 分词特征维度）
-            dim_head=32,           # 每个注意力头的维度（可调）
-            heads=1,               # 注意力头数（可调）
-            dropout=0.0,           # 注意力 Dropout
-            prenorm=True           # 是否 LayerNorm 在前（推荐 True）
-        ).to('cuda')
-        
+
         self.dropout = nn.Dropout(p=0.6).to('cuda')  # 0.5 是常用值，可以调
-        self.spectre = SPECTRELayer(
-            d_model=128,         # 保持与 x/context 的特征维度一致
-            n_heads=1,           # 与 BCA 中的 heads 数保持一致
-            max_seq_len=1028,     # 根据你的输入序列长度设（例如文本序列）
-            low_rank=8,          # 可选，提升频域建模质量
-            use_wavelet=True,    # 可选，加入 WRM 改善局部建模
-            dropout=0.0          # 与 BidFusion 保持一致
-        ).to('cuda')
+
         
         self.fuse_linear = nn.Linear(256, 128).to('cuda')
         
