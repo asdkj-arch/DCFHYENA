@@ -572,122 +572,25 @@ class MaskedMultiClass(MultiClass):
             encoder_aux = encoder
         if model_aux is None:
             print("模型注入失败")
-            print("模型注入失败")
-            print("模型注入失败")
             model_aux = model
-        
-        # x2, w2 = encoder_aux(x2, **z) # w can model-specific constructions such as key_padding_mask for transformers or state for RNNs
+       
         x2, w2 = encoder(x2, **z)
         
 
         x2, state2 = model_aux(x2, **w2, state=_state)
-        # x2, state2 = model(x2, **w2, state=_state)
-        # self._state = state
-        # x2, w2 = decoder(x2, state=state, **z)
-                
-        # print("x1.shape =", x1.shape)
-        # print("x2.shape =", x2.shape)
-        # x1 = self.dropout(x1)
-        
-        # x1=selfatt(x1)
-        # x2=selfatt(x2)
 
-        # x1 , x2 = self.bidfusion(x1,x2)
-        # x1 = self.gatefusion(x1, x2)
-        # plot_position_interaction_map(
-        #     x1, title="Input 1 (x1)",
-        #     seq_len_show=20,
-        #     save_path=f"/public/ojsys/eye/wuwencan/lihaokai/output/plot/dualhyena/x1.pdf"
-        # )
-
-        # plot_position_interaction_map(
-        #     x2, title="Input 2 (x2)",
-        #     seq_len_show=20,
-        #     save_path=f"/public/ojsys/eye/wuwencan/lihaokai/output/plot/dualhyena/x2.pdf"
-        # )
-
-        ################################################################################################################################################
         x3 , x4 = bidfusion(x1,x2)
-        #################################################################################################################################################
-        # x1 = crossatt(x1 , x2)
-        # x2 = crossatt(x2 , x1)
-        # plot_position_interaction_map(
-        #     x3, title="After bidirectional fusion (x3)",
-        #     seq_len_show=20,
-        #     save_path=f"/public/ojsys/eye/wuwencan/lihaokai/output/plot/dualhyena/x3.pdf"
-        # )
-        # plot_position_interaction_map(
-        #     x4, title="After bidirectional fusion (x4)",
-        #     seq_len_show=20,
-        #     save_path=f"/public/ojsys/eye/wuwencan/lihaokai/output/plot/dualhyena/x4.pdf"
-        # )
-        ##########################################################################################################################################################
+       
         x5 = gatefusion(x3, x4)
-        # plot_position_interaction_map(
-        #     x5, title="After gated fusion (x5)",
-        #     seq_len_show=20,
-        #     save_path=f"/public/ojsys/eye/wuwencan/lihaokai/output/plot/dualhyena/x5.pdf"
-        # )
-        ####################################################################################################################################################################################
+        
         x1 = x5
-        # x1 = self.cross_attention(x1, x2)
-        # x1 = crossatt(x1 , x2)
-        # x2 = crossatt(x2 , x1)
-        # x1 = self.dropout(x1)
-        # x1 = self.dropout(x1)
-        # # x1 = self.cross_attention(x2, x1)
-        
-        # x1 = sam(x1, x2)
-        
-#         x1=selfatt(x1)
-        
-#         x1=win_att(x1)
-#         x1=win_att0(x1)
-        
-#         x1=selfatt0(x1)
-        
-        
         
         
 
-        # fused = self.norm(x1,x2)
-
-        # 然后进行连接
-        # x1 = torch.cat((x1_norm, x2_norm), dim=-1).to('cuda')
-
-        
-        # fused = torch.cat([x1, x2], dim=-1).to('cuda')
-
-        # x1 = self.fuse_linear(fused)
-
-
-        # x1 , x2 = bidatt(x1,x2)
-        # x1 = attlayer(x1, x2, x12, x22)
-
-
-        
-        
-        # x1 , con = self.spectre(x1)
-        # x1 , con = spectre(x1)
-        # x2 , con = self.spectre(x2)
-        
-        # x1 = x1.permute(0, 2, 1)  # [batch, channels, seq_len]
-        # # X1=self.cnnnet(x1)
-        # X1=cnnnet(x1)
-        # x1 = x1.permute(0, 2, 1)  
-        # x1 , con = self.spectre(x1)
-    
-        # x1 = self.dropout(x1)
-        # x1 = codon(x1)
-        
-
+  
         
         x,w1=decoder(x1,state=state1,**z)
-        
-        # x,w1=decoder(x2,state=state2,**z)
 
-        
-       # x = self.cross_attention(x1, x2)
 
         
         x = rearrange(x, '... C -> (...) C')
