@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 创建日志目录
-LOG_DIR="/public/ojsys/eye/wuwencan/lihaokai/output/test_logs/gla_test"
+LOG_DIR="./data"
 mkdir -p "$LOG_DIR"
 
 
