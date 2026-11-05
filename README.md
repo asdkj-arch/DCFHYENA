@@ -132,11 +132,6 @@ It can be used to initialize DCFHYENA for downstream TFBS prediction tasks or fo
 
 ### 4.2 Fine-tuned model
 
-The fine-tuned checkpoint contains the parameters optimized for TFBS classification.
-
-This checkpoint is recommended for users who want to directly perform TFBS prediction without repeating the training process.
-
-```
 
 **Important:** The configuration file associated with each checkpoint should be used when loading the model to ensure architectural consistency.
 
